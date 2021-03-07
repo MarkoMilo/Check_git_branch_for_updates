@@ -66,6 +66,8 @@ def check_git_branch(current_branch=CURRENT_BRANCH, merge_branch=MERGE_BRANCH):
         out = output.decode('utf-8')
         print(out)
         if 'Your branch is behind' in out:
+            print('\n**********************  git pull  **********************\n')
+            os.system('cmd /c git pull')
             git_sheckout(current_branch)
             return True
         elif 'Your branch is up to date with' in out:
@@ -81,7 +83,7 @@ def check_git_branch(current_branch=CURRENT_BRANCH, merge_branch=MERGE_BRANCH):
 def do_something():  # Do something with a new code
     if check_git_branch():
         if os.name == 'nt':  # if OS Windows
-            print('\n**********************  cmd pull origin master **********************n \n')
+            print('\n**********************  cmd pull origin {} **********************n \n'.format(MERGE_BRANCH))
             os.system('cmd /c git pull origin {}'.format(MERGE_BRANCH))
             git_stash_pop()
             print("\n\n {} is updated\n\n".format(MERGE_BRANCH))
