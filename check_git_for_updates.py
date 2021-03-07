@@ -3,8 +3,8 @@ import pathlib
 import subprocess
 SOURCE_PATH = os.path.normpath(os.getcwd() + os.sep + os.pardir)
 EXAMPLE_PATH = os.getcwd()
-CURRENT_BRANCH = "test_"
-MERGE_BRANCH = "dev"
+CURRENT_BRANCH = "test_branch"
+MERGE_BRANCH = "main"
 
 test_path = pathlib.Path(__file__).resolve().parent
 
