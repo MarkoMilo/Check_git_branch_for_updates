@@ -84,7 +84,7 @@ def do_something():  # Do something with a new code
             print('\n**********************  cmd pull origin master **********************n \n')
             os.system('cmd /c git pull origin {}'.format(MERGE_BRANCH))
             git_stash_pop()
-            print("\n\n {} je updateovan\n\n".format(MERGE_BRANCH))
+            print("\n\n {} is updated\n\n".format(MERGE_BRANCH))
         else:  # if system Linux or MAC
             print('\n**********************  cmd pull origin master **********************n \n')
             os.system('git pull origin master')
