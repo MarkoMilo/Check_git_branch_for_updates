@@ -21,7 +21,7 @@ def git_stash_pop():
 
 def git_sheckout(branch):
     print('\n**********************  git checkout {}  **********************\n'.format(branch))
-    os.system('cmd git checkout {}'.format(branch))
+    os.system('cmd /c git checkout {}'.format(branch))
 
 
 def check_git_branch(current_branch=CURRENT_BRANCH, merge_branch=MERGE_BRANCH):
@@ -82,9 +82,9 @@ def do_something():  # Do something with a new code
     if check_git_branch():
         if os.name == 'nt':  # if OS Windows
             print('\n**********************  cmd pull origin master **********************n \n')
-            os.system('cmd /c git pull origin dev')
+            os.system('cmd /c git pull origin {}'.format(MERGE_BRANCH))
             git_stash_pop()
-            print("\n\n DEV je updateovan\n\n")
+            print("\n\n {} je updateovan\n\n".format(MERGE_BRANCH))
         else:  # if system Linux or MAC
             print('\n**********************  cmd pull origin master **********************n \n')
             os.system('git pull origin master')
