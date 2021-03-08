@@ -10,18 +10,30 @@ test_path = pathlib.Path(__file__).resolve().parent
 
 
 def git_stash():
-    print('\n**********************  git stash  **********************\n')
-    os.system('cmd /c git stash')
+    if os.name == 'nt':  # if OS Windows
+        print('\n**********************  git stash  **********************\n')
+        os.system('cmd /c git stash')
+    else: 
+        print('\n**********************  git stash  **********************\n')
+        os.system('cmd git stash')
 
 
 def git_stash_pop():
-    print('\n**********************  cmd stash pop  **********************p\n')
-    os.system('cmd /c git stash pop')
+    if os.name == 'nt':  # if OS Windows
+        print('\n**********************  cmd stash pop  **********************p\n')
+        os.system('cmd /c git stash pop')
+    else: 
+        print('\n**********************  cmd stash pop  **********************p\n')
+        os.system('cmd git stash pop')
 
 
 def git_sheckout(branch):
-    print('\n**********************  git checkout {}  **********************\n'.format(branch))
-    os.system('cmd /c git checkout {}'.format(branch))
+    if os.name == 'nt':  # if OS Windows
+        print('\n**********************  git checkout {}  **********************\n'.format(branch))
+        os.system('cmd /c git checkout {}'.format(branch))
+    else: 
+        print('\n**********************  git checkout {}  **********************\n'.format(branch))
+        os.system('cmd git checkout {}'.format(branch))
 
 
 def check_git_branch(current_branch=CURRENT_BRANCH, merge_branch=MERGE_BRANCH):
